@@ -1,4 +1,5 @@
-﻿using Lab_4.Utilities;
+﻿using Lab_4.Models;
+using Lab_4.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,15 @@ namespace Lab_4.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                Videogames newGame = (new Videogames
+                {
+                    Name = collection["Name"],
+                    RealeseDAte = DateTime.Parse(collection["RealeseDate"]),
+                    Gender = collection["Gender"],
+                    Ranking = int.Parse(collection["Ranking"]),
+                    platform = collection["plataform"]
+                });
+                Singleton.Instance.dictionary.Add(collection["Name"], newGame);
 
                 return RedirectToAction("Index");
             }
