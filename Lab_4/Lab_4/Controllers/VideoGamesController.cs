@@ -13,7 +13,7 @@ namespace Lab_4.Controllers
         // GET: VideoGames
         public ActionResult Index()
         {
-            return View();
+            return View(Singleton.Instance.dictionary.ToList());
         }
 
         // GET: VideoGames/Details/5
@@ -82,12 +82,11 @@ namespace Lab_4.Controllers
 
         // POST: VideoGames/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(string id, FormCollection collection)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                Singleton.Instance.dictionary.Remove(id);
                 return RedirectToAction("Index");
             }
             catch
@@ -95,22 +94,18 @@ namespace Lab_4.Controllers
                 return View();
             }
         }
-        
-        public ActionResult Search()
+        [HttpPost]
+        public ActionResult Search(string text)
         {
+            Videogames temp = Singleton.Instance.dictionary[text];
+            if(temp!= null)
+            {
+                return View("Details", temp);
+            }
+            else
+                ViewBag.Error = "El elemento no se encuentra";
             return View();
         }
-        [HttpPost]
-        public ActionResult Search(FormCollection collection)
-        {
-            try
-            {
-                return View();
-            }
-            catch
-            {
-                return View();
-            }
-        }
+       
     }
 }

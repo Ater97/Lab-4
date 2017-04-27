@@ -201,7 +201,6 @@
     <Content Include="Views\VideoGames\Index.cshtml" />
     <Content Include="Views\VideoGames\Delete.cshtml" />
     <Content Include="Views\VideoGames\Edit.cshtml" />
-    <Content Include="Views\VideoGames\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
