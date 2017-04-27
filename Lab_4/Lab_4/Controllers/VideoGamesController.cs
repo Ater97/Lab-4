@@ -40,7 +40,8 @@ namespace Lab_4.Controllers
                     RealeseDAte = collection["RealeseDate"],
                     Gender = collection["Gender"],
                     Ranking = int.Parse(collection["Ranking"]),
-                    platform = collection["platform"]
+                    platform = collection["platform"],
+                    Players = int.Parse(collection["Players"])
                 });
 
                 Singleton.Instance.dictionary.Add(collection["Name"], newGame);
@@ -61,11 +62,21 @@ namespace Lab_4.Controllers
 
         // POST: VideoGames/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(string id, FormCollection collection)
         {
             try
             {
-                // TODO: Add update logic here
+                Videogames temp = (new Videogames
+                {
+                    Name = collection["Name"],
+                    RealeseDAte = collection["RealeseDate"],
+                    Gender = collection["Gender"],
+                    Ranking = int.Parse(collection["Ranking"]),
+                    platform = collection["platform"],
+                    Players = int.Parse(collection["Players"])
+                });
+                Singleton.Instance.dictionary.Remove(id);
+                Singleton.Instance.dictionary.Add(id, temp);
 
                 return RedirectToAction("Index");
             }
@@ -99,6 +110,7 @@ namespace Lab_4.Controllers
         public ActionResult Search(string text)
         {
             Videogames temp = Singleton.Instance.dictionary[text];
+            
             if(temp!= null)
             {
                 return View("Details", temp);

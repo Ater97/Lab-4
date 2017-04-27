@@ -8,6 +8,7 @@ namespace Lab_4.Models
 {
     public class Videogames
     {
+        [Key]
         [Display(Name = "Nombre")]
         public string Name { get; set; }
 
@@ -22,6 +23,9 @@ namespace Lab_4.Models
 
         [Display(Name = "Plataformas disponibles")]
         public string platform { get; set; }
+
+        [Display(Name = "Numero de jugadores")]
+        public int Players { get; set; }
 
     }
 }

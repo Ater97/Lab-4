@@ -5,7 +5,23 @@
 }
 
 <h2>Index</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Busqueda de videojuegos</h3>
+    </div>
+    <div class="panel-body">
 
+        @using (Html.BeginForm("Search", "Videogames", FormMethod.Post))
+            {
+            <font size="3" color="black">
+                <p>
+                    <input type="text" name="text" placeholder="-nombre del videojuego-">
+                    <input type="submit" value="Buscar" />
+                </p>
+            </font>
+        }
+    </div>
+</div>
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -25,6 +41,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.platform)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Players)
         </th>
         <th></th>
     </tr>
@@ -46,6 +65,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.platform)
         </td>
+        <th>
+            @Html.DisplayFor(modelItem => item.Players)
+        </th>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.Name }) |
             @Html.ActionLink("Details", "Details", new { id=item.Name }) |
