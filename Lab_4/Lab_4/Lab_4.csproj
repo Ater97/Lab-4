@@ -155,6 +155,7 @@
     </Compile>
     <Compile Include="Models\Videogames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Singleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -199,6 +200,7 @@
     <Content Include="Views\VideoGames\Create.cshtml" />
     <Content Include="Views\VideoGames\Index.cshtml" />
     <Content Include="Views\VideoGames\Delete.cshtml" />
+    <Content Include="Views\VideoGames\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
