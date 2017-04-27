@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab_4.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,9 +16,9 @@ namespace Lab_4.Controllers
         }
 
         // GET: VideoGames/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
-            return View();
+            return View(Singleton.Instance.dictionary[id]);
         }
 
         // GET: VideoGames/Create
@@ -43,9 +44,9 @@ namespace Lab_4.Controllers
         }
 
         // GET: VideoGames/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
-            return View();
+            return View(Singleton.Instance.dictionary[id]);
         }
 
         // POST: VideoGames/Edit/5
@@ -86,12 +87,12 @@ namespace Lab_4.Controllers
             }
         }
         
-        public ActionResult Update()
+        public ActionResult Search()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Update(FormCollection collection)
+        public ActionResult Search(FormCollection collection)
         {
             try
             {

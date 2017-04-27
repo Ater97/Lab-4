@@ -21,6 +21,7 @@ namespace Lab_4.Utilities
                 return _instance;
             }
         }
-        Dictionary<string, Videogames> dictionary = new Dictionary<string, Videogames>();
+
+      public Dictionary<string, Videogames> dictionary = new Dictionary<string, Videogames>();
     }
 }
