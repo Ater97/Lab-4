@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Lab_4.Models.Videogames>
+﻿@model  IEnumerable<Lab_4.Models.Videogames>
 
 @{
     ViewBag.Title = "Index";
@@ -47,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.platform)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Name }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Name }) |
+            @Html.ActionLink("Delete", "Delete", new {  id = item.Name })
         </td>
     </tr>
 }

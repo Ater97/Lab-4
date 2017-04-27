@@ -22,6 +22,12 @@ namespace Lab_4.Utilities
             }
         }
 
-      public Dictionary<string, Videogames> dictionary = new Dictionary<string, Videogames>();
+        public Dictionary<string, Videogames> dictionary = new Dictionary<string, Videogames>();
+
+        public List<Videogames> DictionaryToList()
+        {
+            List<Videogames> temp = dictionary.Values.ToList();
+            return temp;
+        }
     }
 }

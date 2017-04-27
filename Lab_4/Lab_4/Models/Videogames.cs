@@ -12,7 +12,7 @@ namespace Lab_4.Models
         public string Name { get; set; }
 
         [Display(Name = "Fecha de estreno")]
-        public DateTime RealeseDAte { get; set; }
+        public string RealeseDAte { get; set; }
 
         [Display(Name = "Genero")]
         public string Gender { get; set; }

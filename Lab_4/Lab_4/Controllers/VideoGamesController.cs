@@ -13,7 +13,7 @@ namespace Lab_4.Controllers
         // GET: VideoGames
         public ActionResult Index()
         {
-            return View(Singleton.Instance.dictionary.ToList());
+            return View(Singleton.Instance.DictionaryToList());
         }
 
         // GET: VideoGames/Details/5
@@ -37,11 +37,12 @@ namespace Lab_4.Controllers
                 Videogames newGame = (new Videogames
                 {
                     Name = collection["Name"],
-                    RealeseDAte = DateTime.Parse(collection["RealeseDate"]),
+                    RealeseDAte = collection["RealeseDate"],
                     Gender = collection["Gender"],
                     Ranking = int.Parse(collection["Ranking"]),
-                    platform = collection["plataform"]
+                    platform = collection["platform"]
                 });
+
                 Singleton.Instance.dictionary.Add(collection["Name"], newGame);
 
                 return RedirectToAction("Index");
@@ -75,9 +76,9 @@ namespace Lab_4.Controllers
         }
 
         // GET: VideoGames/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(string id)
         {
-            return View();
+            return View(Singleton.Instance.dictionary[id]);
         }
 
         // POST: VideoGames/Delete/5
