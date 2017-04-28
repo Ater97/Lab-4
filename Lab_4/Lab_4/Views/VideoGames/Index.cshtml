@@ -4,76 +4,147 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">Busqueda de videojuegos</h3>
-    </div>
-    <div class="panel-body">
+<div class="jumbotron">
 
-        @using (Html.BeginForm("Search", "Videogames", FormMethod.Post))
+    <Center>
+        <font color="black">
+            <h2>Indice - Videojuegos</h2>
+        </font>
+        <hr align="CENTER" size="3" width="600" color="black" noshade />
+    </Center>
+
+    <div align="right">
+        <div class="alinear">
+            @using (Html.BeginForm("Create", "VideoGames", FormMethod.Get))
             {
-            <font size="3" color="black">
-                <p>
-                    <input type="text" name="text" placeholder="-nombre del videojuego-">
-                    <input type="submit" value="Buscar" />
-                </p>
-            </font>
-        }
+                <font color="black">
+                    <label class="label"> Agregar un nuevo elemento</label>
+                    <input type="submit" value="" class="add" title="Agregar" />
+                </font>
+            }
+        </div>
     </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Buscar Videojuego </h3>
+        </div>
+        <div class="panel-body">
+
+            @using (Html.BeginForm("Search", "Videogames", FormMethod.Post))
+            {
+                <font size="3" color="black">
+                    <p>
+                        <input type="text" name="text" placeholder="-Nombre del video juego-">
+                        <input type="submit" value="Buscar" />
+                    </p>
+                </font>
+            }
+        </div>
+    </div>
+
+    <!-- Show mistakes  -->
+
+    <div align="center">
+        <font color="red">
+            <h4>@ViewBag.Error</h4>
+        </font>
+        <font color="#24AAFF">
+            @ViewBag.MessageError
+        </font>
+    </div>
+
 </div>
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RealeseDAte)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Gender)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ranking)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.platform)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Players)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RealeseDAte)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gender)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ranking)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.platform)
-        </td>
-        <th>
-            @Html.DisplayFor(modelItem => item.Players)
-        </th>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Name }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Name }) |
-            @Html.ActionLink("Delete", "Delete", new {  id = item.Name })
-        </td>
-    </tr>
-}
+<div class="jumbotron">
+    <div class="container">
+        <font size="2" color="black">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RealeseDAte)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Gender)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ranking)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.platform)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Players)
+                    </th>
+                    <th></th>
+                </tr>
 
-</table>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RealeseDAte)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Gender)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ranking)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.platform)
+                        </td>
+                        <th>
+                            @Html.DisplayFor(modelItem => item.Players)
+                        </th>
+
+                        @if (item != null)
+                        {
+                            <td>
+
+                                <div class="alinear">
+                                    <div class="alinear">
+                                        @using (Html.BeginForm("Edit", "VideoGames", new { id = item.Name }, FormMethod.Get))
+                                        {
+                                            <font color="black" size="3">
+                                                <input type="submit" value="" class="edit" title="Editar" />
+                                            </font>
+                                        }
+                                    </div>
+
+                                    <div class="alinear">
+                                        @using (Html.BeginForm("Details", "VideoGames", new { id = item.Name }, FormMethod.Get))
+                                        {
+                                            <font color="black" size="3">
+                                                <input type="submit" value="" class="details" title="Detalles" />
+                                            </font>
+                                        }
+                                    </div>
+
+                                    <div class="alinear">
+                                        @using (Html.BeginForm("Delete", "VideoGames", new { id = item.Name }, FormMethod.Get))
+                                        {
+                                            <font color="black" size="3">
+                                                <input type="submit" value="" class="delete" title="Eliminar" />
+                                            </font>                                    
+                                        }
+                                    </div>
+                                </div>
+                            </td>
+                        }
+                    </tr>
+                }
+
+            </table>
+        </font>
+    </div>   
+</div>
+
+
+   

@@ -4,63 +4,72 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Videogames</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+<div class="jumbotron">
+    <font color="black">
+        <h2>Detalles del videojuego</h2>
+    </font>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+    <font color="black"  size="3">
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.RealeseDAte)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.RealeseDAte)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.RealeseDAte)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.RealeseDAte)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Gender)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Ranking)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Gender)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Ranking)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Ranking)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.platform)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Ranking)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.platform)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.platform)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Players)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.platform)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Players)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Players)
+                </dt>
 
-    </dl>
+                <dd>
+                    @Html.DisplayFor(model => model.Players)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Editar", "Edit", new { id = Model.Name }) |
+            @Html.ActionLink("Regresar al indice", "Index")
+        </p>
+
+    </font>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Name}) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+    

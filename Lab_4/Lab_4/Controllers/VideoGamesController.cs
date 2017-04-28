@@ -106,18 +106,22 @@ namespace Lab_4.Controllers
                 return View();
             }
         }
+
         [HttpPost]
         public ActionResult Search(string text)
         {
-            Videogames temp = Singleton.Instance.dictionary[text];
-            
-            if(temp!= null)
+            try
             {
-                return View("Details", temp);
+                Videogames temp = Singleton.Instance.dictionary[text];
+
+               return View("Details", temp);
             }
-            else
-                ViewBag.Error = "El elemento no se encuentra";
-            return View();
+            catch(Exception e)
+            {
+                ViewBag.Error = "Error 000000x1";
+                ViewBag.MessageError = e.Message;
+                return View("Index", Singleton.Instance.DictionaryToList());
+            }          
         }
        
     }
